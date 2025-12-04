@@ -1,0 +1,97 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "export",
+  "title": "Export",
+  "description": "Professional export tool for Keynote, Pages, and PowerPoint with advanced options: range selection, single slide, multiple formats",
+  "icon": "icon.png",
+  "author": "yosfgfx",
+  "owner": "weqaa",
+  "platforms": ["macOS"],
+  "categories": ["Design Tools", "Applications", "Productivity"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "index",
+      "title": "Export",
+      "description": "Export Keynote, Pages, and PowerPoint documents with advanced options",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "defaultExportPath",
+      "title": "مسار التصدير الافتراضي",
+      "description": "المجلد الافتراضي لحفظ الملفات المصدّرة",
+      "type": "directory",
+      "default": "~/Desktop",
+      "required": false
+    },
+    {
+      "name": "keynoteExportPath",
+      "title": "مسار حفظ Keynote",
+      "description": "المجلد المخصص لحفظ ملفات Keynote",
+      "type": "directory",
+      "default": "~/Desktop",
+      "required": false
+    },
+    {
+      "name": "pagesExportPath",
+      "title": "مسار حفظ Pages",
+      "description": "المجلد المخصص لحفظ ملفات Pages",
+      "type": "directory",
+      "default": "~/Desktop",
+      "required": false
+    },
+    {
+      "name": "powerpointExportPath",
+      "title": "مسار حفظ PowerPoint",
+      "description": "المجلد المخصص لحفظ ملفات PowerPoint",
+      "type": "directory",
+      "default": "~/Desktop",
+      "required": false
+    },
+    {
+      "name": "namingPattern",
+      "title": "نمط تسمية الملفات",
+      "description": "اختر طريقة تسمية الملفات المصدّرة",
+      "type": "dropdown",
+      "required": false,
+      "default": "timestamp",
+      "data": [
+        { "title": "اسم الملف + طابع زمني (DD-MM-YYYY)", "value": "timestamp" },
+        { "title": "اسم الملف + رقم تسلسلي", "value": "sequential" },
+        { "title": "اسم مخصص", "value": "custom" }
+      ]
+    },
+    {
+      "name": "customFilename",
+      "title": "الاسم المخصص",
+      "description": "اسم الملف عند اختيار 'اسم مخصص'. المتغيرات: {name}, {date}, {time}, {slides}",
+      "type": "textfield",
+      "default": "{name}_{date}",
+      "required": false
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.103.8",
+    "@raycast/utils": "^1.17.0",
+    "execa": "^8.0.1",
+    "run-applescript": "^7.0.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.0.4",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "build": "npm run build:swift && ray build -e dist",
+    "dev": "npm run build:swift && ray develop",
+    "build:swift": "cd swift && chmod +x build.sh && ./build.sh",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
