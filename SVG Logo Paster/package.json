@@ -1,0 +1,218 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "saudi-logo-vault",
+  "title": "Saudi Logo Vault",
+  "description": "Comprehensive SVG logo library and paste tool for Saudi organizations",
+  "icon": "icon.png",
+  "author": "yosfgfx",
+  "categories": [
+    "Applications",
+    "Design Tools",
+    "Productivity"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "search-logos",
+      "title": "Search Logos",
+      "description": "Search and paste SVG logos from Saudi organizations",
+      "mode": "view"
+    },
+    {
+      "name": "add-custom-logo",
+      "title": "Add Custom Logo",
+      "description": "Add a custom SVG logo to your library",
+      "mode": "view"
+    },
+    {
+      "name": "manage-library",
+      "title": "Manage Library",
+      "description": "Edit or delete logos in your library",
+      "mode": "view"
+    },
+    {
+      "name": "quick-paste-recent",
+      "title": "Quick Paste Recent",
+      "description": "Quickly access recently used logos",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "logosSource",
+      "type": "dropdown",
+      "required": false,
+      "title": "Logos Source",
+      "description": "Select where to load logos from",
+      "default": "mixed",
+      "data": [
+        { "title": "Bundled Only", "value": "bundled" },
+        { "title": "Local Folder", "value": "local-folder" },
+        { "title": "Remote JSON", "value": "remote-json" },
+        { "title": "Remote CSV", "value": "remote-csv" },
+        { "title": "Mixed (Bundled + External)", "value": "mixed" }
+      ]
+    },
+    {
+      "name": "logosFolderPath",
+      "type": "textfield",
+      "required": false,
+      "title": "Local Logos Folder",
+      "description": "Absolute path to a folder of logos: <category>/<org>/<variant>-<type>.svg",
+      "default": ""
+    },
+    {
+      "name": "logosRemoteUrl",
+      "type": "textfield",
+      "required": false,
+      "title": "Remote Logos URL (JSON or CSV)",
+      "description": "HTTP(S) URL to JSON or CSV describing logos",
+      "default": ""
+    },
+    {
+      "name": "gridTileSize",
+      "type": "dropdown",
+      "required": false,
+      "title": "Grid Tile Size",
+      "description": "Size of logo tiles in grid view",
+      "default": "medium",
+      "data": [
+        { "title": "Small", "value": "small" },
+        { "title": "Medium", "value": "medium" },
+        { "title": "Large", "value": "large" }
+      ]
+    },
+    {
+      "name": "thumbnailSize",
+      "type": "dropdown",
+      "required": false,
+      "title": "Thumbnail Size",
+      "description": "Size of logo thumbnail rendering",
+      "default": "128",
+      "data": [
+        { "title": "64 px", "value": "64" },
+        { "title": "128 px", "value": "128" },
+        { "title": "256 px", "value": "256" }
+      ]
+    },
+    {
+      "name": "thumbnailBackground",
+      "type": "dropdown",
+      "required": false,
+      "title": "Thumbnail Background",
+      "description": "Background behind logo thumbnails",
+      "default": "transparent",
+      "data": [
+        { "title": "Transparent", "value": "transparent" },
+        { "title": "Dark", "value": "#1e1e1e" },
+        { "title": "Light", "value": "#ffffff" }
+      ]
+    },
+    {
+      "name": "defaultVariant",
+  "type": "dropdown",
+      "required": false,
+      "title": "Default Paste Variant",
+      "description": "Default logo variant to paste",
+      "default": "original",
+      "data": [
+        {
+          "title": "Original",
+          "value": "original"
+        },
+        {
+          "title": "Dark",
+          "value": "dark"
+        },
+        {
+          "title": "Bright/White",
+          "value": "bright"
+        }
+      ]
+    },
+    {
+      "name": "defaultLogoType",
+      "type": "dropdown",
+      "required": false,
+      "title": "Default Logo Type",
+      "description": "Default logo type (primary/secondary)",
+      "default": "primary",
+      "data": [
+        {
+          "title": "Primary",
+          "value": "primary"
+        },
+        {
+          "title": "Secondary",
+          "value": "secondary"
+        }
+      ]
+    },
+    {
+      "name": "showPreviewBeforePaste",
+      "type": "checkbox",
+      "required": false,
+      "title": "Show Preview Before Paste",
+      "label": "Show Preview Before Paste",
+      "description": "Show logo preview before pasting",
+      "default": false
+    },
+    {
+      "name": "preferredCategories",
+      "type": "dropdown",
+      "required": false,
+      "title": "Preferred Categories",
+      "description": "Categories to show first in search results",
+      "default": "all",
+      "data": [
+        {
+          "title": "All Categories",
+          "value": "all"
+        },
+        {
+          "title": "Government Entities",
+          "value": "government"
+        },
+        {
+          "title": "Banks & Finance",
+          "value": "finance"
+        },
+        {
+          "title": "Telecommunications",
+          "value": "telecom"
+        },
+        {
+          "title": "Energy & Oil",
+          "value": "energy"
+        },
+        {
+          "title": "Airlines",
+          "value": "airlines"
+        },
+        {
+          "title": "Retail",
+          "value": "retail"
+        }
+      ]
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.60.0",
+    "@raycast/utils": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.52.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "ray publish"
+  }
+}

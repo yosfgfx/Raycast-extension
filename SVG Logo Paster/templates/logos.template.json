@@ -1,0 +1,16 @@
+[
+  {
+    "id": "saudi-vision-2030",
+    "nameEn": "Saudi Vision 2030",
+    "nameAr": "رؤية السعودية 2030",
+    "category": "government",
+    "keywords": ["vision", "2030", "saudi"],
+    "variants": {
+      "original": { "primary": "<svg>...</svg>", "secondary": "<svg>...</svg>" },
+      "dark": { "primary": "<svg>...</svg>", "secondary": "<svg>...</svg>" },
+      "bright": { "primary": "<svg>...</svg>", "secondary": "<svg>...</svg>" }
+    },
+    "brandGuidelinesUrl": "https://example.com/brand",
+    "usageRestrictions": "Official use only"
+  }
+]
