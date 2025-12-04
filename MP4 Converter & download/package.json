@@ -1,0 +1,46 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "video-converter-mp4",
+  "title": "محول الفيديو إلى MP4",
+  "description": "تحويل ملفات الفيديو إلى صيغة MP4 بجودة عالية باستخدام FFmpeg",
+  "icon": "icon.png",
+  "author": "yosfgfx",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "thwyl-aly-mp4",
+      "title": "تحويل فيديو إلى MP4",
+      "subtitle": "Video Converter",
+      "description": "تحويل فيديو من ملف أو رابط",
+      "mode": "view"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.88.4",
+    "@raycast/utils": "^1.10.1",
+    "execa": "^9.5.1",
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.11",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "20.8.10",
+    "@types/react": "^18.2.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "react": "^18.2.0",
+    "typescript": "^5.4.5"
+  },
+  "overrides": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\\"prepublishOnly\\\" script and rerun \\\"npm publish\\\" again.\\nIf you wanted to publish it to the Raycast Store instead, use \\\"npm run publish\\\" instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
